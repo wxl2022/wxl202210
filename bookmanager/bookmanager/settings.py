@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# 注册子应用
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'book', # 方案1
+    'book.apps.BookConfig', # 方案2
+    # 理论上是要采用如上的两种方案注册子应用，如果不注册，会出问题
 ]
 
 MIDDLEWARE = [
