@@ -25,6 +25,10 @@ class BookInfo(models.Model):
     # 添加name字段
     name = models.CharField(max_length=10)          #　这里就相当于在数据库里定义了　name vachar(10)
 
+    # 重写 str方法以让admin来显示书籍名字
+    def __str__(self):
+        return self.name
+
 
 # 准备人物列表信息的模型类
 class PeopleInfo(models.Model):
@@ -32,3 +36,7 @@ class PeopleInfo(models.Model):
     gender = models.BooleanField()
     # 添加外键约束：人物属于哪本书
     book = models.ForeignKey(BookInfo, on_delete=models.CASCADE)
+
+    # 重写 str方法以让admin来显示人物名字
+    def __str__(self):
+        return self.name
