@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path
+from django.urls import include
 
+# 导入视图函数的引用
+from book.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # 添加路由 path(请求路由, 视图函数的引用)
+    # path('index/', index),
+    # re_path('index/', index),
+    path('', include('book.urls'))   # 用include包含子应用的url
 ]
